@@ -1,0 +1,5 @@
+Linear Regression: MAE=0.521, MSE=0.434, RMSE=0.659, R2=0.766
+Decision Tree Regressor: MAE=0.491, MSE=0.399, RMSE=0.632, R2=0.785
+Random Forest Regressor: MAE=0.391, MSE=0.245, RMSE=0.495, R2=0.868
+
+Best model: Random Forest Regressor
