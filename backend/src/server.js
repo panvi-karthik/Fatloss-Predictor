@@ -8,11 +8,15 @@ async function start() {
     await sequelize.authenticate();
     await sequelize.sync();
     app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
-  } catch (error) {
+  } 
+  
+  catch (error) {
     console.error('Unable to start backend:', error.message);
     process.exit(1);
   }
 }
+
+
 
 start();
 
