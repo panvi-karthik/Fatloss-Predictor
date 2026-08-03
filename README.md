@@ -1,6 +1,6 @@
 FitPredict AI
 
-<a href="www.youtube.com"></a>
+<a href="www.youtube.com"> YOUTUBE </a>
 
 -> A full-stack machine learning web application that predicts fat loss based on a user's health and lifestyle data.
 
