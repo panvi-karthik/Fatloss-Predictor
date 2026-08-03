@@ -20,6 +20,8 @@ REPORTS = BASE / "reports"
 FEATURES = ["Age", "Gender", "Height", "Weight", "BMI", "Calories", "WorkoutDuration", "Steps", "SleepHours", "WaterIntake", "ActivityLevel"]
 TARGETS = ["FatLoss", "WeightLoss"]
 
+
+
 def generate_dataset(rows=5000, seed=42):
     rng = np.random.default_rng(seed)
     age = rng.integers(18, 66, rows)
@@ -56,6 +58,8 @@ def generate_dataset(rows=5000, seed=42):
     df.to_csv(DATASET, index=False)
     return df
 
+
+
 def clean_data(df):
     df = df.drop_duplicates()
     for col in ["Height", "Weight", "BMI", "Calories", "WorkoutDuration", "Steps", "SleepHours", "WaterIntake", "FatLoss", "WeightLoss"]:
@@ -63,6 +67,7 @@ def clean_data(df):
         iqr = q3 - q1
         df[col] = df[col].clip(q1 - 1.5 * iqr, q3 + 1.5 * iqr)
     return df
+
 
 def save_reports(df, results, best_name, best_model):
     REPORTS.mkdir(exist_ok=True)
@@ -90,6 +95,7 @@ def save_reports(df, results, best_name, best_model):
         plt.tight_layout()
         plt.savefig(REPORTS / "feature_importance_graph.png")
         plt.close()
+
 
 def main():
     df = generate_dataset()
@@ -122,6 +128,7 @@ def main():
     joblib.dump(preprocessor, BASE / "preprocessor.pkl")
     save_reports(df, results, best_name, trained[best_name])
     print(f"Saved dataset, reports and best model: {best_name}")
+
 
 if __name__ == "__main__":
     main()
