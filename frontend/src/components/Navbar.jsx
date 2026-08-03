@@ -12,11 +12,14 @@ export default function Navbar() {
     localStorage.setItem('fitpredict_theme', dark ? 'dark' : 'light');
   }, [dark]);
 
+  
+
   const logout = () => {
     localStorage.removeItem('fitpredict_user');
     navigate('/login');
   };
 
+  
   const linkClass = ({ isActive }) => `text-sm font-medium ${isActive ? 'text-mint' : 'text-slate-700 dark:text-slate-200'}`;
 
   return (
@@ -25,6 +28,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-2 text-lg font-bold">
           <Activity className="h-6 w-6 text-mint" /> FitPredict AI
         </Link>
+        
         <div className="flex items-center gap-4">
           <NavLink className={linkClass} to="/">Home</NavLink>
           {user && <NavLink className={linkClass} to="/dashboard">Dashboard</NavLink>}
@@ -36,6 +40,8 @@ export default function Navbar() {
           </button>
           {user && <button className="btn-secondary !px-2" onClick={logout} title="Logout"><LogOut size={18} /></button>}
         </div>
+
+        
       </nav>
     </header>
   );
