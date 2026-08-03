@@ -2,6 +2,8 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 const User = require('./User');
 
+
+
 const Prediction = sequelize.define('Prediction', {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   user_id: { type: DataTypes.INTEGER, allowNull: false },
@@ -23,8 +25,11 @@ const Prediction = sequelize.define('Prediction', {
   tableName: 'prediction_history'
 });
 
+
+
 User.hasMany(Prediction, { foreignKey: 'user_id' });
 Prediction.belongsTo(User, { foreignKey: 'user_id' });
+
 
 module.exports = Prediction;
 
