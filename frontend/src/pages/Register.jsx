@@ -9,6 +9,7 @@ export default function Register() {
   const navigate = useNavigate();
   const submit = async (event) => {
     event.preventDefault();
+    
     if (form.password !== form.confirm) return toast.error('Passwords do not match');
     try {
       await authApi.register({ username: form.username, password: form.password });
@@ -18,6 +19,7 @@ export default function Register() {
       toast.error(error.response?.data?.message || 'Registration failed');
     }
   };
+  
   return (
     <div className="mx-auto max-w-md">
       <form onSubmit={submit} className="panel">
