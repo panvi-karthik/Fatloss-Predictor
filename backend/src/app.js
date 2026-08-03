@@ -1,18 +1,22 @@
 const express = require('express');
 const cors = require('cors');
+
 require('dotenv').config();
 require('./models/Prediction');
+
+
+
 
 const authRoutes = require('./routes/authRoutes');
 const predictionRoutes = require('./routes/predictionRoutes');
 const historyRoutes = require('./routes/historyRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
-
 const app = express();
+
+
 
 app.use(cors());
 app.use(express.json());
-
 app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/predict', predictionRoutes);
@@ -26,6 +30,8 @@ app.use((err, _req, res, _next) => {
     message: mlDown ? 'ML service is unavailable' : 'Something went wrong'
   });
 });
+
+
 
 module.exports = app;
 
