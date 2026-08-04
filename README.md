@@ -57,6 +57,9 @@ The project was developed as a final-year engineering project to gain practical 
 
 4. ⚙️ Project Architecture :-
 
+
+The application follows a full-stack layered architecture. The backend is implemented using the MVC pattern with a service layer, the frontend follows a component-based architecture using React, and the machine learning module is deployed as an independent Flask microservice. Communication between the frontend, backend, database, and ML service is done through REST APIs.
+
 React Frontend
 
 ↓
