@@ -22,6 +22,7 @@ TARGETS = ["FatLoss", "WeightLoss"]
 
 
 
+
 def generate_dataset(rows=5000, seed=42):
     rng = np.random.default_rng(seed)
     age = rng.integers(18, 66, rows)
